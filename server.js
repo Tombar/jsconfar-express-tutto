@@ -1,15 +1,17 @@
-var http = require('http');
+var express = require('express');
+var server = express.createServer();
 
-var server =http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/html'});
-    res.end('<h1>Hola Mundo</h1>');
-});
+/**
+    Configuration
+**/
+server.set('view_engine', 'jade');
+server.set('views', _dirname + '/views');
+server.set('view options', { layout: false});
 
-/*
-server.listen(3000, function () {
-    console.log('Levantosky');
+server.get('/', function (req, res, next){
+    res.render('index', { authenticated: false});
 });
-*/
 
 module.exports = server;
+
 
