@@ -8,4 +8,9 @@ html
     p Yeah! 
   else
     p Nein
-
+      form(action="/login", method="POST")
+        label User 
+        input(type="text", name="user")
+        label Pass 
+        input(type="password", name="pass")
+        button Submit
